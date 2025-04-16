@@ -3,7 +3,7 @@
 Opex Home Solution is a comprehensive web application that showcases house designs with advanced features like price prediction and intelligent search. This platform is designed to help users explore, filter, and analyze house designs effortlessly.
 
 ## 🚀 Features
-- **House Design Catalog**: Browse 445+ house designs (apartments, bungalows, villas, etc.) with detailed specifications and images.
+- **House Design Catalog**: Browse 1000+ house designs (apartments, bungalows, villas, etc.) with detailed specifications and images.
 - **AI-Powered Price Prediction**: Predict house prices based on area, design type, and land options.
 - **NLP-Based Search**: Search house designs using natural language queries.
 - **Dynamic Filters**: Filter designs by price range, area, type, and other parameters.
