@@ -50,7 +50,7 @@ Opex Home Solution is a comprehensive web application that showcases house desig
 ## 📦 Installation
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/<your-username>/Opex-Home-Solution.git
+   git clone https://github.com/INFINITYASH3699/Opex-Home-Solution.git
    cd Opex-Home-Solution
 
 
@@ -125,5 +125,5 @@ This project is licensed under the MIT License.
 📞 Contact
 For questions or suggestions, feel free to reach out:
 
-Email: opexhomesolutions@gmail.com
+Email: yash.hulle3699@gmail.com
 GitHub: [@INFINITYASH3699](https://github.com/INFINITYASH3699/Opex-Home-Solution-React-Node-ML-)
