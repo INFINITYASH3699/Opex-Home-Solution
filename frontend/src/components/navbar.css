@@ -89,13 +89,13 @@
 }
 
 .navbar-logo img {
-  height: 25px; /* Reduced from 40px to 25px */
+  height: 35px;
   width: auto;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .navbar-main.scrolled .navbar-logo img {
-  height: 25px; /* Reduced from 35px to 20px */
+  height: 32px; /* Reduced from 35px to 20px */
   transform: scale(0.98);
 }
 
