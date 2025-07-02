@@ -1,0 +1,1064 @@
+/* houseDetails.css */
+
+:root {
+  /* Color Palette */
+  --primary: #4f46e5;
+  --primary-light: #818cf8;
+  --primary-dark: #3730a3;
+  --accent: #ec4899;
+  --accent-light: #f472b6;
+  --accent-dark: #db2777;
+  --success: #10b981;
+  --error: #ef4444;
+  --warning: #f59e0b;
+  --dark-bg: #111827;
+  --dark-surface: #1f2937;
+  --dark-text: #f9fafb;
+  --light-bg: #f9fafb;
+  --light-surface: #ffffff;
+  --light-text: #111827;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+/* Base Styles */
+.house-details-page {
+  width: 100%;
+  max-width: 100%;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  color: var(--gray-900);
+  background-color: var(--gray-50);
+  padding-bottom: var(--space-3xl);
+}
+
+body.dark .house-details-page {
+  color: var(--dark-text);
+  background-color: var(--dark-bg);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+  background-color: var(--light-surface);
+  padding: var(--space-md) 0;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-xl);
+}
+
+body.dark .breadcrumb-nav {
+  background-color: var(--dark-surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.breadcrumb-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+body.dark .breadcrumb-link {
+  color: var(--primary-light);
+}
+
+.breadcrumb-separator {
+  margin: 0 var(--space-sm);
+  color: var(--gray-400);
+}
+
+.breadcrumb-current {
+  color: var(--gray-600);
+  font-size: 0.9rem;
+}
+
+body.dark .breadcrumb-current {
+  color: var(--gray-400);
+}
+
+/* Loading State */
+.house-details-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  gap: var(--space-md);
+}
+
+.loading-icon {
+  font-size: 3rem;
+  color: var(--primary);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.house-details-loading p {
+  font-size: 1.25rem;
+  color: var(--gray-600);
+}
+
+body.dark .house-details-loading p {
+  color: var(--gray-400);
+}
+
+/* Error State */
+.house-details-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.error-icon {
+  font-size: 3rem;
+  color: var(--error);
+  margin-bottom: var(--space-md);
+}
+
+.house-details-error h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.house-details-error p {
+  font-size: 1rem;
+  color: var(--gray-600);
+  margin-bottom: var(--space-xl);
+  max-width: 500px;
+}
+
+body.dark .house-details-error p {
+  color: var(--gray-400);
+}
+
+.retry-button,
+.back-home-button {
+  padding: var(--space-md) var(--space-xl);
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.retry-button:hover,
+.back-home-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Main Layout */
+.house-details-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+}
+
+/* Gallery Column */
+.gallery-column {
+  position: relative;
+}
+
+.gallery-container {
+  position: sticky;
+  top: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Image Type Selector */
+.image-type-selector {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.type-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--gray-200);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+body.dark .type-button {
+  background-color: var(--gray-800);
+  color: var(--gray-300);
+}
+
+.type-button:hover:not([disabled]) {
+  background-color: var(--gray-300);
+}
+
+body.dark .type-button:hover:not([disabled]) {
+  background-color: var(--gray-700);
+}
+
+.type-button.active {
+  background-color: var(--primary);
+  color: white;
+}
+
+body.dark .type-button.active {
+  background-color: var(--primary-dark);
+}
+
+.type-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Main Image */
+.main-image-container {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background-color: var(--gray-100);
+  aspect-ratio: 4/3;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.main-image:hover {
+  transform: scale(1.05);
+}
+
+.image-actions {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.action-button {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-button:hover {
+  background-color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.action-button.favorited {
+  background-color: var(--warning);
+  color: white;
+}
+
+.copied-alert {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+}
+
+/* Thumbnails */
+.thumbnails-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.thumbnails-container {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  padding: var(--space-sm) 0;
+  flex: 1;
+}
+
+.thumbnails-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.thumbnail {
+  flex: 0 0 80px;
+  height: 60px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+  border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+  opacity: 0.9;
+}
+
+.thumbnail.active {
+  opacity: 1;
+  border-color: var(--primary);
+}
+
+body.dark .thumbnail.active {
+  border-color: var(--primary-light);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav-button {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  background-color: var(--gray-200);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+body.dark .nav-button {
+  background-color: var(--gray-700);
+  color: var(--gray-300);
+}
+
+.nav-button:hover {
+  background-color: var(--gray-300);
+}
+
+body.dark .nav-button:hover {
+  background-color: var(--gray-600);
+}
+
+.no-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--space-md);
+  color: var(--gray-500);
+  font-size: 0.9rem;
+  gap: var(--space-sm);
+}
+
+body.dark .no-images {
+  color: var(--gray-400);
+}
+
+.no-images svg {
+  font-size: 1.5rem;
+}
+
+/* Details Column */
+.details-column {
+  min-height: 100%;
+}
+
+.details-container {
+  background-color: var(--light-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+body.dark .details-container {
+  background-color: var(--dark-surface);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* House Header */
+.house-header {
+  padding: var(--space-xl);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+body.dark .house-header {
+  border-bottom-color: var(--gray-700);
+}
+
+.house-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-md);
+  line-height: 1.2;
+}
+
+.house-highlights {
+  display: flex;
+  gap: var(--space-xl);
+  margin-top: var(--space-md);
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.highlight-icon {
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.highlight-icon.price {
+  background-color: var(--success);
+}
+
+.highlight-icon.area {
+  background-color: var(--primary);
+}
+
+.highlight-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+body.dark .highlight-text {
+  color: var(--gray-300);
+}
+
+/* Details Section */
+.details-section {
+  padding: var(--space-xl);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+body.dark .details-section {
+  border-bottom-color: var(--gray-700);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.section-icon {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+body.dark .section-icon {
+  color: var(--primary-light);
+}
+
+.section-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.description-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--gray-700);
+  margin: 0;
+}
+
+body.dark .description-text {
+  color: var(--gray-300);
+}
+
+/* Specifications */
+.specification-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.specification {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.spec-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+body.dark .spec-label {
+  color: var(--gray-300);
+}
+
+.spec-label svg {
+  color: var(--gray-500);
+}
+
+body.dark .spec-label svg {
+  color: var(--gray-400);
+}
+
+.spec-value {
+  color: var(--gray-800);
+  padding-left: calc(var(--space-md) + 16px); /* Align with label text */
+}
+
+body.dark .spec-value {
+  color: var(--gray-200);
+}
+
+/* Contractor Card */
+.contractor-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg);
+  background-color: var(--gray-50);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+}
+
+body.dark .contractor-card {
+  background-color: var(--dark-bg);
+  border-color: var(--gray-700);
+}
+
+.contractor-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.contractor-name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.contractor-icon {
+  color: var(--primary);
+}
+
+body.dark .contractor-icon {
+  color: var(--primary-light);
+}
+
+.contractor-name h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.contractor-contact {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.contractor-contact a {
+  color: var(--gray-600);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.contractor-contact a:hover {
+  color: var(--primary);
+}
+
+body.dark .contractor-contact a {
+  color: var(--gray-400);
+}
+
+body.dark .contractor-contact a:hover {
+  color: var(--primary-light);
+}
+
+.contractor-cta {
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contractor-cta:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Download Section */
+.download-section {
+  padding: var(--space-xl);
+  display: flex;
+  justify-content: center;
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  background-color: var(--gray-800);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.download-button:hover {
+  background-color: var(--gray-900);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+body.dark .download-button {
+  background-color: var(--gray-700);
+}
+
+body.dark .download-button:hover {
+  background-color: var(--gray-600);
+}
+
+/* Image Modal */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-xl);
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background-color: transparent;
+}
+
+.modal-close {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.modal-close:hover {
+  opacity: 1;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: var(--radius-md);
+  object-fit: contain;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 0 var(--space-md);
+  }
+
+  .house-details-container {
+    gap: var(--space-xl);
+  }
+
+  .house-title {
+    font-size: 1.75rem;
+  }
+
+  .house-highlights {
+    gap: var(--space-lg);
+  }
+
+  .highlight-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .house-details-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .gallery-container {
+    position: relative;
+    top: 0;
+  }
+
+  .modal-close {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .breadcrumb-nav {
+    padding: var(--space-sm) 0;
+    margin-bottom: var(--space-lg);
+  }
+
+  .main-image-container {
+    aspect-ratio: 16/9;
+  }
+
+  .house-header,
+  .details-section,
+  .download-section {
+    padding: var(--space-lg);
+  }
+
+  .house-title {
+    font-size: 1.5rem;
+  }
+
+  .house-highlights {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .highlight-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .description-text {
+    font-size: 0.95rem;
+  }
+
+  .contractor-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md);
+  }
+
+  .contractor-cta {
+    width: 100%;
+    text-align: center;
+  }
+
+  .download-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 var(--space-sm);
+  }
+
+  .type-button {
+    font-size: 0.8rem;
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .action-button {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .thumbnails-nav {
+    gap: var(--space-xs);
+  }
+
+  .thumbnail {
+    flex: 0 0 70px;
+    height: 50px;
+  }
+
+  .nav-button {
+    width: 26px;
+    height: 26px;
+    font-size: 0.8rem;
+  }
+
+  .action-link {
+    font-size: 0.9rem;
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .house-title {
+    font-size: 1.3rem;
+  }
+
+  .highlight-text {
+    font-size: 0.9rem;
+  }
+
+  .specification-list {
+    gap: var(--space-lg);
+  }
+
+  .specification {
+    gap: var(--space-xs);
+  }
+
+  .spec-label {
+    font-size: 0.9rem;
+  }
+
+  .spec-value {
+    font-size: 0.9rem;
+    padding-left: calc(var(--space-sm) + 16px);
+  }
+
+  .contractor-name h3 {
+    font-size: 1rem;
+  }
+
+  .contractor-contact a {
+    font-size: 0.9rem;
+  }
+
+  .modal-content img {
+    max-height: 80vh;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.action-button:focus-visible,
+.type-button:focus-visible,
+.nav-button:focus-visible,
+.action-link:focus-visible,
+.contractor-cta:focus-visible,
+.download-button:focus-visible,
+.modal-close:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+body.dark .action-button:focus-visible,
+body.dark .type-button:focus-visible,
+body.dark .nav-button:focus-visible,
+body.dark .action-link:focus-visible,
+body.dark .contractor-cta:focus-visible,
+body.dark .download-button:focus-visible,
+body.dark .modal-close:focus-visible {
+  outline-color: var(--primary-light);
+}
+
+/* Architecture Plan Styles */
+.architecture-plan-container {
+  background-color: var(--light-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+body.dark .architecture-plan-container {
+  background-color: var(--dark-surface);
+}
+
+.architecture-loading,
+.architecture-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  height: 400px;
+  width: 100%;
+  text-align: center;
+  color: var(--gray-600);
+}
+
+body.dark .architecture-loading,
+body.dark .architecture-error {
+  color: var(--gray-400);
+}
+
+.architecture-loading svg,
+.architecture-error svg {
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+}
+
+.architecture-error svg {
+  color: var(--warning);
+}
+
+.architecture-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.architecture-image-container {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.architecture-image-container:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.architecture-image-container img {
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .image-type-selector {
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .type-button {
+    flex: 1;
+    min-width: calc(33.333% - var(--space-xs));
+    font-size: 0.85rem;
+    padding: var(--space-xs) var(--space-sm);
+  }
+}
+
+@media (max-width: 576px) {
+  .type-button {
+    min-width: calc(50% - var(--space-xs));
+    margin-bottom: var(--space-xs);
+  }
+}
