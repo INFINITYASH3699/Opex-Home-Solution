@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+
 const ArchitecturePlan = () => {
   const { index } = useParams(); // Use house ID from params
   const [house, setHouse] = useState(null); // State to hold the house details

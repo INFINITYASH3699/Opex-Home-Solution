@@ -12,6 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "../styles/about.css"; // New dedicated CSS file
 
+
 const About = () => {
   // References for scroll animations
   const missionRef = useRef(null);

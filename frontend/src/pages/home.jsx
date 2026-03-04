@@ -24,6 +24,7 @@ import "../styles/home.css";
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
+
 const Home = () => {
   // State variables
   const [houses, setHouses] = useState([]);

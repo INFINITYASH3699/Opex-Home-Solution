@@ -37,6 +37,7 @@ const Contact = () => {
   const nameRef = useRef(null);
   const formRef = useRef(null);
 
+  
   // Focus first field on mount
   useEffect(() => {
     if (nameRef.current) {
